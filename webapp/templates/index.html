@@ -1,0 +1,172 @@
+{% load staticfiles %}
+
+<html>
+	<head>
+		<link rel="shortcut icon" type="image/png" href="bf_favicon.png"/>
+		<!-- font -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}static/main.css">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<title>BookieFree | Free eBooks</title>
+	</head>
+	<body>
+
+	<div style="margin:0px;" class="row">
+		<div class="col-lg-2 left-navbar">
+			<img src="{{ STATIC_URL }}static/images/bf_logo.png" width="200px" class="img-responsive">
+		</div>
+		<div class="col-lg-10 main-navbar">
+
+			<div class="row">
+
+				<div class="col-md-10">
+				<div id="custom-search-input">
+		            <div class="input-group">
+		                <input type="text" class="search-query form-control" placeholder="Search for popular titles, authors, publications...." />
+		                <span class="input-group-btn">
+		                    <button class="btn btn-danger" type="button">
+		                		<span class=" glyphicon glyphicon-search"></span>
+		                    </button>
+		                </span>
+		            </div>
+		        </div>
+		    	</div>
+
+		    	<div class="col-md-2">
+		    		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+					<span class="fa-stack fa-2x has-badge" data-count="103">
+					  <i class="glyphicon glyphicon-heart custom-bk"></i>
+					</span>
+		    	</div>
+
+	    	</div>
+
+	    </div>
+	</div>
+	<!-- row begin -->
+	<div style="margin:0px;" class="row main-body">
+		<!-- left section -->
+		<div style="padding-right:0px; padding-left:0px;" class="col-md-2">
+
+			<div class="user-head-left">
+
+                      <ul class="inbox-nav inbox-divider">
+
+						  <li id="explore" class="active">
+                              <a href="/" onclick="test()">Explore</a>
+
+                          </li>
+                          <li id="fiction">
+                              <a href="fiction" onclick="test()">Fiction</a>
+
+                          </li>
+                          <li>
+                              <a href="non_fiction">Non-Fiction</a>
+                          </li>
+                          <li>
+                              <a href="#">Romance</a>
+                          </li>
+                          <li>
+                              <a href="#">Drama</a>
+                          </li>
+                          <li>
+                              <a href="#">Classic</a>
+                          </li>
+                      </ul>
+                      <br>
+                      <hr>
+                      <br>
+                      <ul class="inbox-nav inbox-divider">
+
+						  <li>
+                              <a href="#"><i class="fa fa-inbox"></i>About</a>
+
+                          </li>
+						   <li>
+                              <a href="#"><i class="fa fa-inbox"></i>Resources</a>
+
+                          </li>
+						   <li>
+                              <a href="#"><i class="fa fa-inbox"></i>Our Team</a>
+
+                          </li>
+						  <li>
+                              <a href="#"><i class="fa fa-inbox"></i>Contact</a>
+
+                          </li>
+
+                      </ul>
+
+		</div>
+	</div>
+
+		<!-- Book list section -->
+		<div style="height: 100vh; overflow-y:scroll; padding:0px 24px;" class="col-md-10">
+
+
+				<p class="category-heading">New in Fiction</p>
+				<ul class="list-inline">
+
+					{% for book in s1books %}
+						<li>
+							<div class="card">
+								<img src="{{ STATIC_URL }}{{ book.img_url }}" width="150" height="200" class="book-image">
+								<div class="book-details">
+									<h4><b>{{ book.name }}</b></h4>
+									<p>{{ book.author }}</p>
+										<div class="ratings-icons">
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+										</div>
+									<br>
+								</div>
+								<button class="btn-download">Download</button>
+								<button type="button" class="btn-bookmark"><i class="glyphicon glyphicon-heart"></i></button>
+							</div>
+						</li>
+					{% endfor %}
+					</ul>
+
+
+					<p class="category-heading">Non-Fiction</p>
+					<ul class="list-inline">
+					{% for book in s2books %}
+						<li>
+							<div class="card">
+								<img src="{{ STATIC_URL }}{{ book.img_url }}" width="150" height="200" class="book-image">
+								<div class="book-details">
+									<h4><b>{{ book.name }}</b></h4>
+									<p>{{ book.author }}</p>
+										<div class="ratings-icons">
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+											<span class="glyphicon glyphicon-star"></span>
+										</div>
+									<br>
+								</div>
+								<button class="btn-download">Download</button>
+								<button type="button" class="btn-bookmark"><i class="glyphicon glyphicon-heart"></i></button>
+							</div>
+						</li>
+					{% endfor %}
+
+				</ul>
+
+		</div>
+
+	<!-- row end -->
+	</div>
+
+		<script type="text/javascript" src="{{ STATIC_URL }}static/js/main.js"></script>
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</body>
+</htmL>
