@@ -3,6 +3,14 @@ from django.http import HttpResponse
 from . import models
 
 
+import sys
+sys.path.insert(0, 'libg')
+from customize import *
+
+from pprint import pprint
+
+
+
 def home(request):
    return render(request, 'index.html', {'s1books':books, 's2books':nfbooks})
 
@@ -12,18 +20,30 @@ def fiction(request):
 def non_fiction(request):
    return render(request, 'categories.html', {'books':nfbooks})
 
+def search(request):
+   q = request.GET.get("q", None)
+   if q:
+        return render(request, 'categories.html', {'books': get_infoz(q)})
 
+   else:
+        message = 'Empty'#creat error page
+
+def download(request):
+    md5= request.GET.get("id", None)
+    if md5:
+        download_f(md5)
+        return render(request, 'index.html', {'s1books': books, 's2books': nfbooks})
 
 
 class Book:
    def __init__(self, img_url, name, author, ratings):
       self.img_url = img_url
-      self.name = name
+      self.title = name
       self.author = author
       self.ratings = ratings
 
-
-
+"""
+vv={'img_url':'static/images/test.jpg','title':'dd','author':'jobin','ratings':''}"""
 books = [
    Book("static/images/test.jpg","Book Of Pook", "Jobin Sabu", 5),
    Book("static/images/s8.jpg","Out of the Box", "Bhavay Khanna", 4),

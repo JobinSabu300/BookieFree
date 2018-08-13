@@ -16,6 +16,7 @@
 		<div class="col-lg-2 left-navbar">
 			<img src="{{ STATIC_URL }}static/images/bf_logo.png" width="200px" class="img-responsive">
 		</div>
+	<form action="/search" method="get">
 		<div class="col-lg-10 main-navbar">
 
 			<div class="row">
@@ -23,7 +24,7 @@
 				<div class="col-md-10">
 				<div id="custom-search-input">
 		            <div class="input-group">
-		                <input type="text" class="search-query form-control" placeholder="Search for popular titles, authors, publications...." />
+		                <input type="text" name="q" class="search-query form-control" placeholder="Search for popular titles, authors, publications...." />
 		                <span class="input-group-btn">
 		                    <button class="btn btn-danger" type="button">
 		                		<span class=" glyphicon glyphicon-search"></span>
@@ -43,7 +44,9 @@
 	    	</div>
 
 	    </div>
+	</form>
 	</div>
+
 	<!-- row begin -->
 	<div style="margin:0px;" class="row main-body">
 		<!-- left section -->
@@ -96,12 +99,12 @@
 				<!--<p class="category-heading">Fiction</p>-->
 				<ul class="list-inline">
 
-					{% for book in books %}
+					{%for book in books %}
 						<li>
 							<div class="card">
-								<img src="{{ STATIC_URL }}{{ book.img_url }}" width="150" height="200" class="book-image">
+								<img src="http://libgen.io/covers/{{ STATIC_URL }}{{ book.coverurl }}" width="150" height="200" class="book-image">
 								<div class="book-details">
-									<h4><b>{{ book.name }}</b></h4>
+									<h4><b>{{ book.title }}</b></h4>
 									<p>{{ book.author }}</p>
 										<div class="ratings-icons">
 											<span class="glyphicon glyphicon-star"></span>
@@ -112,7 +115,9 @@
 										</div>
 									<br>
 								</div>
-								<button class="btn-download">Download</button>
+
+								<a href="/download?id={{book.md5}}"><button type="submit" class="btn-download">Download</button></a>
+
 								<button type="button" class="btn-bookmark"><i class="glyphicon glyphicon-heart"></i></button>
 							</div>
 						</li>
