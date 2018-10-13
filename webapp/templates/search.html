@@ -9,6 +9,11 @@
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<title>BookieFree | Free eBooks</title>
+		<!--<style type="text/css">-->
+			<!--img {-->
+			   <!--background-image: url('{{ STATIC_URL }}static/images/image_un.png');-->
+			<!--}-->
+		<!--</style>-->
 	</head>
 	<body>
 
@@ -34,11 +39,13 @@
 		        </div>
 		    	</div>
 
+				<!--wishlist icon-->
+
 		    	<div class="col-md-2">
-		    		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-					<span class="fa-stack fa-2x has-badge" data-count="103">
-					  <i class="glyphicon glyphicon-heart custom-bk"></i>
-					</span>
+		    		<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">-->
+					<!--<span class="fa-stack fa-2x has-badge" data-count="103">-->
+					  <!--<i class="glyphicon glyphicon-heart custom-bk"></i>-->
+					<!--</span>-->
 		    	</div>
 
 	    	</div>
@@ -96,16 +103,23 @@
 		<div style="height: 100vh; overflow-y:scroll; padding:0px 24px;" class="col-md-10">
 
 
+				<p class="category-heading">30 results found for "python"</p>
+
+
 				<!--<p class="category-heading">Fiction</p>-->
 				<ul class="list-inline">
 
 					{%for book in books %}
 						<li>
 							<div class="card">
-								<img src="http://libgen.io/covers/{{ STATIC_URL }}{{ book.coverurl }}" width="150" height="200" class="book-image">
+
+
+      								<img src="http://libgen.io/covers/{{ STATIC_URL }}{{ book.coverurl }}"  onerror="this.src='{{ STATIC_URL }}static/images/image_un.png'"  alt="Cover Page Unavailable" width="150" height="200" class="book-image">
+
+
 								<div class="book-details">
-									<span style="display:block;text-overflow: ellipsis;width: 150px;overflow: hidden; white-space: nowrap;"><h4><b>{{ book.title }}</b></h4></span>
-									<span style="display:block;text-overflow: ellipsis;width: 150px;overflow: hidden; white-space: nowrap; padding:4px;">{{ book.author }}</span>
+									<h4><span style="display:block;text-overflow: ellipsis;width: 150px;overflow: hidden; white-space: nowrap;"><b>{{ book.title }}</b></span></h4>
+									<p><span style="display:block;text-overflow: ellipsis;width: 150px;overflow: hidden; white-space: nowrap; padding-top: 4px; padding-bottom: 4px;">{{ book.author }}</span></p>
 										<div style="margin-top: 4px;" class="ratings-icons">
 											<span class="glyphicon glyphicon-star"></span>
 											<span class="glyphicon glyphicon-star"></span>
