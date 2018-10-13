@@ -16,7 +16,7 @@
 		<div class="col-lg-2 left-navbar">
 			<img src="{{ STATIC_URL }}static/images/bf_logo.png" width="200px" class="img-responsive">
 		</div>
-    <form action="/search" method="get">
+	<form action="/search" method="get">
 		<div class="col-lg-10 main-navbar">
 
 			<div class="row">
@@ -24,14 +24,12 @@
 				<div class="col-md-10">
 				<div id="custom-search-input">
 		            <div class="input-group">
-
-						        <input type="text" name="q" class="search-query form-control" placeholder="Search for popular titles, authors, publications...." />
-		                    <span class="input-group-btn">
-		                        <button class="btn btn-danger" type="button">
-                                <span class=" glyphicon glyphicon-search"></span>
-		                        </button>
-		                    </span>
-
+		                <input type="text" name="q" class="search-query form-control" placeholder="Search for popular titles, authors, publications...." />
+		                <span class="input-group-btn">
+		                    <button class="btn btn-danger" type="button">
+		                		<span class=" glyphicon glyphicon-search"></span>
+		                    </button>
+		                </span>
 		            </div>
 		        </div>
 		    	</div>
@@ -46,8 +44,9 @@
 	    	</div>
 
 	    </div>
-    </form>
+	</form>
 	</div>
+
 	<!-- row begin -->
 	<div style="margin:0px;" class="row main-body">
 		<!-- left section -->
@@ -82,24 +81,12 @@
                       <hr>
                       <br>
                       <ul class="inbox-nav inbox-divider">
-
+						  {% for i in "123456"%}
 						  <li>
-                              <a href="#"><i class="fa fa-inbox"></i>About</a>
+                              <a href="#"><i class="fa fa-inbox"></i>Explore</a>
 
                           </li>
-						   <li>
-                              <a href="#"><i class="fa fa-inbox"></i>Resources</a>
-
-                          </li>
-						   <li>
-                              <a href="#"><i class="fa fa-inbox"></i>Our Team</a>
-
-                          </li>
-						  <li>
-                              <a href="#"><i class="fa fa-inbox"></i>Contact</a>
-
-                          </li>
-
+						  {% endfor %}
                       </ul>
 
 		</div>
@@ -109,17 +96,17 @@
 		<div style="height: 100vh; overflow-y:scroll; padding:0px 24px;" class="col-md-10">
 
 
-				<p class="category-heading">New in Fiction</p>
+				<!--<p class="category-heading">Fiction</p>-->
 				<ul class="list-inline">
 
-					{% for book in s1books %}
+					{%for book in books %}
 						<li>
 							<div class="card">
-								<img src="{{ STATIC_URL }}{{ book.img_url }}" width="150" height="200" class="book-image">
+								<img src="http://libgen.io/covers/{{ STATIC_URL }}{{ book.coverurl }}" width="150" height="200" class="book-image">
 								<div class="book-details">
-									<h4><b>{{ book.name }}</b></h4>
-									<p>{{ book.author }}</p>
-										<div class="ratings-icons">
+									<span style="display:block;text-overflow: ellipsis;width: 150px;overflow: hidden; white-space: nowrap;"><h4><b>{{ book.title }}</b></h4></span>
+									<span style="display:block;text-overflow: ellipsis;width: 150px;overflow: hidden; white-space: nowrap; padding:4px;">{{ book.author }}</span>
+										<div style="margin-top: 4px;" class="ratings-icons">
 											<span class="glyphicon glyphicon-star"></span>
 											<span class="glyphicon glyphicon-star"></span>
 											<span class="glyphicon glyphicon-star"></span>
@@ -128,39 +115,14 @@
 										</div>
 									<br>
 								</div>
-								<button class="btn-download">Download</button>
+
+								<a href="/download?id={{book.md5}}"><button type="submit" class="btn-download">Download</button></a>
+
 								<button type="button" class="btn-bookmark"><i class="glyphicon glyphicon-heart"></i></button>
 							</div>
 						</li>
 					{% endfor %}
 					</ul>
-
-
-					<p class="category-heading">Non-Fiction</p>
-					<ul class="list-inline">
-					{% for book in s2books %}
-						<li>
-							<div class="card">
-								<img src="{{ STATIC_URL }}{{ book.img_url }}" width="150" height="200" class="book-image">
-								<div class="book-details">
-									<span class="limit"><h4><b>{{ book.name }}</b></h4></span>
-									<p>{{ book.author }}</p>
-										<div class="ratings-icons">
-											<span class="glyphicon glyphicon-star"></span>
-											<span class="glyphicon glyphicon-star"></span>
-											<span class="glyphicon glyphicon-star"></span>
-											<span class="glyphicon glyphicon-star"></span>
-											<span class="glyphicon glyphicon-star"></span>
-										</div>
-									<br>
-								</div>
-								<button class="btn-download">Download</button>
-								<button type="button" class="btn-bookmark"><i class="glyphicon glyphicon-heart"></i></button>
-							</div>
-						</li>
-					{% endfor %}
-
-				</ul>
 
 		</div>
 

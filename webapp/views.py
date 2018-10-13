@@ -23,7 +23,7 @@ def non_fiction(request):
 def search(request):
    q = request.GET.get("q", None)
    if q:
-        return render(request, 'categories.html', {'books': get_infoz(q)})
+        return render(request, 'search.html', {'books': get_infoz(q)})
 
    else:
         message = 'Empty'#creat error page

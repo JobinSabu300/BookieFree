@@ -594,3 +594,11 @@ ul {
 	margin-top: 40px;
 	line-height: 10px;
 }
+
+.limit {
+    display: block;
+    text-overflow: ellipsis;
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+}
