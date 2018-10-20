@@ -9,5 +9,9 @@ urlpatterns = [
     path('fiction', views.fiction, name='fiction'),
     path('non_fiction', views.non_fiction, name='non_fiction'),
     path('search',views.search,name='search'),
-    path('download',views.download,name='download')
+    path('download',views.download,name='download'),
+    path('request_book',views.request_book,name='request_book'),
+    path('team',views.team,name='team'),
+    path('about',views.about,name='about'),
+    path('signup',views.signup,name='signup'),
 ]

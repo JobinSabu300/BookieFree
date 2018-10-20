@@ -1,0 +1,59 @@
+{% load staticfiles %}
+
+<html>
+	<head>
+		<link rel="shortcut icon" type="image/png" href="bf_favicon.png"/>
+		<!-- font -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}static/main.css">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<title>BookieFree | Free eBooks</title>
+	</head>
+	<body>
+    <div class="container"><br><br>
+        <div class="signupcon">
+            <h2><b>Sign Up</b></h2><br>
+            <form>
+
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input type="text" class="form-control" id="firstname">
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" class="form-control" id="lastname">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address:</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username">
+                </div>
+                <div class="form-group">
+                     <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password">
+                </div>
+                <div class="form-group">
+                     <label for="cpassword">Confirm Password</label>
+                    <input type="password" class="form-control" id="cpassword">
+                </div><br>
+                <div class="checkbox">
+                  <label><input type="checkbox"> I agree with the <a href="#">Terms and Conditions</a>.</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+
+
+            </form>
+        </div><br><br>
+    </div>
+
+		<script type="text/javascript" src="{{ STATIC_URL }}static/js/main.js"></script>
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</body>
+</htmL>

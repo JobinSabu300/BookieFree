@@ -23,4 +23,8 @@ urlpatterns = [
     path('', include('webapp.urls')),
     path('fiction', include('webapp.urls')),
     path('non_fiction', include('webapp.urls')),
+    path('request_book', include('webapp.urls')),
+    path('team', include('webapp.urls')),
+    path('about', include('webapp.urls')),
+    path('signup', include('webapp.urls')),
 ]

@@ -14,6 +14,18 @@ from pprint import pprint
 def home(request):
    return render(request, 'index.html', {'s1books':books, 's2books':nfbooks})
 
+def request_book(request):
+   return render(request, 'request_book.html', {})
+
+def team(request):
+   return render(request, 'team.html', {})
+
+def about(request):
+   return render(request, 'about.html', {})
+
+def signup(request):
+   return render(request, 'signup.html', {})
+
 def fiction(request):
    return render(request, 'categories.html', {'books':fbooks})
 
